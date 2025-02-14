@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Navigation, Autoplay,Pagination } from "swiper/modules";
 import todoListImg from '../assets/todoListImg.jpg'
+import Blog_App from '../assets/Blog_App.jpg'
+import NotesShaala from '../assets/NotesShaala.png'
 import passwordGenImg from '../assets/passwordGenImg.jpg'
 import musicPlayerImg from '../assets/musicPlayerImg.jpg'
 import ProjectCard from './ProjectCard'
@@ -15,7 +17,7 @@ const SwiperContainer = () => {
 
   return (
     <div className="container mx-auto p-4">
-      {size.width < 768 ? (
+      {/* {size.width < 768 ? (
         <Swiper
           spaceBetween={20}
           slidesPerView={1}
@@ -29,6 +31,20 @@ const SwiperContainer = () => {
           }}
           modules={[Autoplay,Pagination]}
         >
+          <SwiperSlide className="flex justify-center">
+            <CardBox height="400px" width="350px">
+              <div>
+                <ProjectCard
+                  title="Full Stack Blog App"
+                  description="React App with Appwrite"
+                  githubLink="https://github.com/Niraj-Kr-29/OwnBlogApp"
+                  websiteLink="https://own-blog-app.vercel.app/"
+                  image={todoListImg}
+                />
+              </div>
+            </CardBox>
+          </SwiperSlide>
+
           <SwiperSlide className="flex justify-center">
             <CardBox height="400px" width="350px">
               <div>
@@ -140,7 +156,62 @@ const SwiperContainer = () => {
             </motion.div>
           </div>
         </div>
-      )}
+      )} */}
+      <Swiper
+          spaceBetween={20}
+          slidesPerView= {size.width < 768 ? 1 : 3}
+          pagination={{
+            clickable: true,
+          }}
+          centeredSlides={true}
+          autoplay={{
+            delay: 3000, // Time interval between slides in milliseconds
+            disableOnInteraction: false,
+          }}
+          modules={[Autoplay,Pagination]}
+        >
+          <SwiperSlide className="flex justify-center">
+            <CardBox height="400px" width="350px">
+              <div>
+                <ProjectCard
+                  title="Full Stack Blog App"
+                  description="React App with Appwrite"
+                  githubLink="https://github.com/Niraj-Kr-29/OwnBlogApp"
+                  websiteLink="https://own-blog-app.vercel.app/"
+                  image={Blog_App}
+                />
+              </div>
+            </CardBox>
+          </SwiperSlide>
+
+          <SwiperSlide className="flex justify-center">
+            <CardBox height="400px" width="350px">
+              <div>
+                <ProjectCard
+                  title="NotesShaala App"
+                  description="A full stack notes sharing app for NIT Jamshedpur Students"
+                  githubLink="https://github.com/Niraj-Kr-29/Dynamic-Music-Player"
+                  websiteLink="https://notes-shala-eight.vercel.app/"
+                  image={NotesShaala}
+                />
+              </div>
+            </CardBox>
+          </SwiperSlide>
+
+          <SwiperSlide className="flex justify-center">
+            <CardBox height="400px" width="350px">
+              <div>
+                <ProjectCard
+                  title="Todo List"
+                  description="React App with Local Storage"
+                  githubLink="https://github.com/Niraj-Kr-29/todoList"
+                  websiteLink="https://niraj-kr-29.github.io/todoList/"
+                  image={todoListImg}
+                />
+              </div>
+            </CardBox>
+          </SwiperSlide>
+        </Swiper>
     </div>
   );
 };
